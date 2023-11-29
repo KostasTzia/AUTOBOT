@@ -1,0 +1,23 @@
+<launch>
+
+  <!--Stepper_speed-->
+  <node name="stepper_speed" pkg="auto_nav" type="stepper_speed" output="screen">
+  </node>
+
+  <!--move_base-->
+  <include file="$(find auto_nav)/launch/move_base.launch"></include>
+
+  <!--Odometry-->
+  <include file="$(find autobot_odometry)/launch/odom_calc.launch" />
+
+  <!--Gmapping-->
+  <include file="$(find gmapping)/launch/slam_gmapping.launch"></include>
+
+  <!-- rviz -->
+  <node pkg="rviz" type="rviz" name="rviz" required="true"
+    args="-d /home/og/catkin_ws/src/auto_nav/rviz/new.rviz" />
+
+
+
+
+</launch>
