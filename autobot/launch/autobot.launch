@@ -1,0 +1,28 @@
+<launch>
+  <!--Use_sim_time-->
+  <param name="/use_sim_time" value="false" />
+
+  <!--Use_gui-->
+  <arg name="gui" default="True" />
+  <param name="use_gui" value="$(arg gui)" />
+
+  <!--Finds  the urdf file for transformation of base_scan->base_link -->
+  <param name="robot_description" command="cat $(find autobot_urdf)/urdf/autobot.urdf" />
+
+  <!--Publishes the urdf-->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen">
+    <param name="publish_frequency" type="double" value="50.0" />
+  </node>
+
+  <!-- this includes the launch file of the Lidar  -->
+  <include file="/home/ogiasras/catkin_ws/src/ydlidar_ros_driver/launch/X2.launch" />
+
+  <!-- node that calls the rosserial pkg with the port and the baud rate of serial connection -->
+  <node name="Arduino" pkg="rosserial_python" type="serial_node.py">
+    <param name="port" type="string" value="/dev/ttyACM0" />
+    <param name="baud" type="int" value="57600" />
+
+  </node>
+
+
+</launch>
