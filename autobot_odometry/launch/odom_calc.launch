@@ -1,0 +1,3 @@
+<launch>
+    <node name="odom_calc" pkg ="autobot_odometry" type="odom_calc" output="screen"/>
+  </launch>
