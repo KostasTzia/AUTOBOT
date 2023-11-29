@@ -1,0 +1,61 @@
+
+DWAPlannerROS:
+
+  # Robot configuration parameters
+  max_vel_x: 0.07
+  min_vel_x: -0.07
+
+  max_vel_theta:  0.8
+  min_vel_theta:  0.2
+ 
+  max_vel_y: 0
+  min_vel_y: 0
+
+  acc_lim_x: 0.18
+  acc_lim_y: 0
+  acc_lim_th: 0.8
+
+  max_vel_trans: 0.04
+  min_vel_trans: 0.02
+
+  # Goal Tolerance Parameters
+  yaw_goal_tolerance: 0.78
+  xy_goal_tolerance: 0.1  
+  latch_xy_goal_tolerance: false
+
+  # Trajectory scoring parameters
+  path_distance_bias: 22.0 # How much the controller should stay close to path (max possible value 32.0)
+  goal_distance_bias: 25.0  # How much the controller should attempt to reach its local goal , also controls speed (max possible value 5.0)
+  occdist_scale: 0.2 # how much the controller should attempt to avoid obstacles 
+  forward_point_distance: 0.01 #The distance from the center point of the robot to place an additional scoring point, in meters 
+  stop_time_buffer: 0.2
+  scaling_speed: 0.02
+  max_scaling_factor: 0.2
+  
+  
+  #meter_scoring: true  # false means goal_distance and path_distance expressed in units of cells, while  true expressed in units of meters 
+  #path_distance_bias: 0.5 # How much the controller should stay close to path (max possible value 5.0)
+  #goal_distance_bias: 0.0
+  #occdist_scale: 1.0 # how much the controller should attempt to avoid obstacles 
+  #heading_lookahead: 0.5 #How far to look ahead in meters when scoring different in-place-rotation trajectories 
+  #heading_scoring: true #Whether to score based on the robot's heading to the path or its distance from the path
+  #heading_scoring_timestep: 0.8 #How far to look ahead in time in seconds along the simulated trajectory when using heading scoring 
+  #publish_cost_grid_pc: true
+  #simple_attractor : false
+  #forward_point_distance: 0.325 #The distance from the center point of the robot to place an additional scoring point, in meters 
+  #stop_time_buffer: 0.2 #The amount of time that the robot must stop before a collision in order for a trajectory to be considered valid in seconds 
+  #scaling_speed: 0.01 #    The absolute value of the velocity at which to start scaling the robot's footprint, in m/s 
+  #max_scaling_factor: 0.1 #The maximum factor to scale the robot's footprint by 
+  
+  #Forward Simulation Parameters
+  sim_time: 3.5
+  vx_samples: 40
+  vy_samples: 0
+  vth_samples: 20
+
+  # Oscillation Prevention Parameters
+  oscillation_reset_dist: 0.02
+  publish_traj_pc : false
+
+# Differential-drive robot configuration - necessary?
+  holonomic_robot: false
